@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-//using Mission6.Models;
+using Mission6.Models;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -20,15 +20,17 @@ namespace Mission6.Controllers
             DbContext = someName;
         }
 
-
-
         public IActionResult Index()
         {
-
             return View();
         }
         
         public IActionResult TaskInput()
+        {
+            return View();
+        }
+
+        public IActionResult TaskView()
         {
             return View();
         }
