@@ -11,14 +11,26 @@ namespace Mission6.Controllers
 {
     public class HomeController : Controller
     {
-        
+        //This is added so we can add stuff to the database
+        private TaskInfoContext DbContext { get; set; }
 
-        public HomeController()
+        //Same as above
+        public HomeController(TaskInfoContext someName)
         {
-    
+            DbContext = someName;
         }
 
         public IActionResult Index()
+        {
+            return View();
+        }
+        
+        public IActionResult TaskInput()
+        {
+            return View();
+        }
+
+        public IActionResult TaskView()
         {
             return View();
         }
