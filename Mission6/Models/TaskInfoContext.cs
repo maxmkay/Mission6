@@ -26,6 +26,19 @@ namespace Mission6.Models
                 new Category { CategoryId = 3, CategoryName = "Work" },
                 new Category { CategoryId = 4, CategoryName = "Church" }
                 );
+
+            //mb.Entity<Tasks>().HasData(
+            //    new Tasks
+            //    {
+            //        TaskId = 1,
+            //        TaskName = "Task1",
+                    
+            //        Quadrant = 1,
+            //        CategoryId = 1
+
+            //    }
+    
+            //    );
         }
     }
 }
