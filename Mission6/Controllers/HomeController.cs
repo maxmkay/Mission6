@@ -28,7 +28,7 @@ namespace Mission6.Controllers
         [HttpGet]
         public IActionResult TaskForm()
         {
-            ViewBag.Task = DbContext.Categories.ToList();
+            ViewBag.Categories = DbContext.Categories.ToList();
 
             return View();
         }
