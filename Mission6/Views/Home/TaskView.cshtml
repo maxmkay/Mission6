@@ -1,5 +1,54 @@
-﻿
-@{
+﻿@{
+    ViewData["Title"] = "View Tasks";
 }
 
-<p>This is yours Tyler</p>
+@model List<Tasks>
+
+<table class="table table-bordered table-striped">
+
+    <thead class="font-weight-bold col">
+        <tr>
+            <td>Task Name</td>
+            <td>Due Date</td>
+            <td>Quadrant</td>
+            <td>Category</td>
+            <td>Completed</td>
+        </tr>
+        @*<tr>
+            <td class="text col">Stephen Covey's Time Management Matrix'</td>
+        </tr>
+        <tr>
+            <td class="text col"></td>
+            <td class="text col">Urgent</td>
+            <td class="text col">Not Urgent</td>
+        </tr>
+        <tr>
+            <td class="text col">Important</td>
+            <td class="text col"><h5>Quadrant I</h5></td>
+            <td class="text col"><h5>Quadrant II</h5></td>
+        </tr>
+        <tr>
+            <td class="text col">Very Important</td>
+            <td class="text col"><h5>Quadrant III</h5></td>
+            <td class="text col"><h5>Quadrant IV</h5></td>
+        </tr>*@
+    </thead>
+
+    @*populates the table rows (body) with data from the database*@
+    <tbody>
+        @foreach (var x in Model)
+        {
+            <tr>
+                <td>@x.TaskName</td>
+                <td>@x.DueDate</td>
+                <td>@x.Quadrant</td>
+                <td>@x.Category</td>
+                <td>@x.Completed</td>
+
+                <td><a asp-controller="Home" asp-action="Edit" asp-route-movieid="@x.TaskId">Edit</a></td>
+                <td><a asp-controller="Home" asp-action="Delete" asp-route-movieid="@x.TaskId">Delete</a></td>
+            </tr>
+        }
+    </tbody>
+
+</table>
