@@ -39,7 +39,7 @@ namespace Mission6.Controllers
             DbContext.Add(ta);
             DbContext.SaveChanges();
 
-            return View("Index");
+            return View("Confirmation");
         }
 
         public IActionResult TaskView()
@@ -81,6 +81,11 @@ namespace Mission6.Controllers
             DbContext.SaveChanges();
 
             return RedirectToAction("TaskView");
+        }
+
+        public IActionResult Confirmation()
+        {
+            return View();
         }
     }
 }
