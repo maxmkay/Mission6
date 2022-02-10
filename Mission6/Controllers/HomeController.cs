@@ -44,7 +44,9 @@ namespace Mission6.Controllers
 
         public IActionResult TaskView()
         {
-            var Tasks = DbContext.Tasks.ToList();
+            var Tasks = DbContext.Tasks
+                .Where(x=> x.Completed == false)
+                .ToList();
 
             return View(Tasks);
         }
