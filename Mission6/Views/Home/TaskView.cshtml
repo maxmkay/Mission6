@@ -1,49 +1,98 @@
 ﻿@{
     ViewData["Title"] = "View Tasks";
 }
-
 @model List<Tasks>
-
-
-<table class="table table-bordered table-striped">
-    <thead>
-        <tr class="row">
-            <td class="col"> </td>
-            <td class="col">Urgent</td>
-            <td class="col">Not Urgent</td>
-        </tr>
-        <tr class="row">
-            <td class="col">Important</td>
-            <td class="col">Quadrant I
-                <table class="table table-bordered table-striped">
-
-                    <thead class="font-weight-bold col">
-                        <tr class="row">
-                            <td class="col">Task Name</td>
-                        </tr>
-
-                    </thead>
-
-                    @*populates the table rows (body) with data from the database*@
-                    <tbody>
-                        @foreach (var x in Model)
+<table class="table table-bordered">
+    @*<colgroup>
+            <col span="1" style="width: 20%;">
+            <col span="1" style="width: 40%;">
+            <col span="1" style="width: 40%;">
+        </colgroup>*@
+    <tr class="container">
+        <th class="col-2"> </th>
+        <th class="col-5 text-center">Urgent</th>
+        <th class="col-5 text-center">Not Urgent</th>
+    </tr>
+    <tr class="container">
+        <th class="col-2">Important</th>
+        <th class="col-5 text-center">
+            Quadrant I
+            <table class="table">
+                @*populates the table rows (body) with data from the database*@
+                <tbody>
+                    @foreach (var x in Model)
+                    {
+                        @if (x.Quadrant == 1)
                         {
                             <tr>
                                 <td>@x.TaskName</td>
-
                                 <td><a asp-controller="Home" asp-action="Edit" asp-route-taskid="@x.TaskId">Edit</a></td>
                                 <td><a asp-controller="Home" asp-action="Delete" asp-route-taskid="@x.TaskId">Delete</a></td>
                             </tr>
                         }
-                    </tbody>
-
-                </table></td>
-            <td class="col">Quadrant II</td>
-        </tr>
-        <tr class="row">
-            <td class="col">Not important</td>
-            <td class="col">Quadrant III</td>
-            <td class="col">Quadrant IV</td>
-        </tr>
-    </thead>
+                    }
+                </tbody>
+            </table>
+        </th>
+        <th class="col-5 text-center">
+            Quadrant II
+            <table class="table">
+                @*populates the table rows (body) with data from the database*@
+                <tbody>
+                    @foreach (var x in Model)
+                    {
+                        @if (x.Quadrant == 2)
+                        {
+                            <tr>
+                                <td>@x.TaskName</td>
+                                <td><a asp-controller="Home" asp-action="Edit" asp-route-taskid="@x.TaskId">Edit</a></td>
+                                <td><a asp-controller="Home" asp-action="Delete" asp-route-taskid="@x.TaskId">Delete</a></td>
+                            </tr>
+                        }
+                    }
+                </tbody>
+            </table>
+        </th>
+    </tr>
+    <tr class="container">
+        <th class="col-2">Not important</th>
+        <th class="col-5 text-center">
+            Quadrant III
+            <table class="table">
+                @*populates the table rows (body) with data from the database*@
+                <tbody>
+                    @foreach (var x in Model)
+                    {
+                        @if (x.Quadrant == 3)
+                        {
+                            <tr>
+                                <td>@x.TaskName</td>
+                                <td><a asp-controller="Home" asp-action="Edit" asp-route-taskid="@x.TaskId">Edit</a></td>
+                                <td><a asp-controller="Home" asp-action="Delete" asp-route-taskid="@x.TaskId">Delete</a></td>
+                            </tr>
+                        }
+                    }
+                </tbody>
+            </table>
+        </th>
+        <th class="col-5 text-center">
+            Quadrant IV
+            <table class="table">
+                @*populates the table rows (body) with data from the database*@
+                <tbody>
+                    @foreach (var x in Model)
+                    {
+                        @if (x.Quadrant == 4)
+                        {
+                            <tr>
+                                <td>@x.TaskName</td>
+                                <td><a asp-controller="Home" asp-action="Edit" asp-route-taskid="@x.TaskId">Edit</a></td>
+                                <td><a asp-controller="Home" asp-action="Delete" asp-route-taskid="@x.TaskId">Delete</a></td>
+                            </tr>
+                        }
+                    }
+                </tbody>
+            </table>
+        </th>
+    </tr>
 </table>
